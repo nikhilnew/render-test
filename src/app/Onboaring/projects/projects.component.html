@@ -1,0 +1,204 @@
+
+<div class="wrapper">
+  <!-- <div class="preloader flex-column justify-content-center align-items-center"> <img class="animation__shake"
+        src="dist/img/logo.png" alt="Logo" height="60" width="60"> </div> -->
+  
+        <div><app-header></app-header></div>
+    
+        <!-- end header code here............... -->
+        <!-- start leftpanel code here............... -->
+        <div ><app-left-panel></app-left-panel></div>
+<div class="content-wrapper" style="height: auto;">
+
+    <div class="content-header">
+      <div class="row mb-2">
+        <div class="col-sm-12">
+          <h1>Add Project/Client details</h1>
+          <br>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <br>
+                <form [formGroup]="projectForm">
+                <div class="row pt-1">
+                    <div class="col-md-3">
+                      <h4> Project owner</h4>
+                      <input type="text  " placeholder="Enter project owner" class="form-control" formControlName="project_owner" 
+                      [ngClass]="{
+                        'is-invalid': submitted && p.project_owner.errors
+                      }">
+
+                      <!-- <div
+                      *ngIf="submitted && p.project_owner.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="p.project_owner.errors">
+                        Project owner is required
+                      </div>
+                    </div> -->
+                    <div
+                    *ngIf="project_owner?.invalid && (project_owner?.dirty || project_owner?.touched)
+                    "
+                    class="form-label text-danger"
+                  >
+                    <div *ngIf="project_owner?.errors?.['required']">
+                      Project owner is required.
+                    </div>
+                    </div>
+                   
+                     
+                    </div>
+                    <div class="col-md-3">
+                      <h4>Client</h4>
+                      <input type="text  " placeholder="Enter Client" class="form-control" formControlName="client"[ngClass]="{
+                        'is-invalid': submitted && p.client.errors
+                      }">
+                    
+                      <!-- <div
+                      *ngIf="submitted && p.client.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="p.client.errors">
+                        Client is required
+                      </div>
+                    </div> -->
+                    <div
+                    *ngIf="client?.invalid && (client?.dirty || client?.touched)
+                    "
+                    class="form-label text-danger"
+                  >
+                    <div *ngIf="client?.errors?.['required']">
+                      Client is required.
+                    </div>
+                    </div>
+                    </div>
+                    <div class="col-md-2">
+                      <h4> Project</h4>
+                      <input type="text  " placeholder="Enter Project" class="form-control" formControlName="project"[ngClass]="{
+                        'is-invalid': submitted && p.project.errors
+                      }">
+                   
+                      <!-- <div
+                      *ngIf="submitted && p.project.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="p.project.errors">
+                        Project is required
+                      </div>
+                    </div> -->
+                    <div
+                    *ngIf="project?.invalid && (project?.dirty || project?.touched)
+                    "
+                    class="form-label text-danger"
+                  >
+                    <div *ngIf="project?.errors?.['required']">
+                      Project is required.
+                    </div>
+                    </div>
+                    </div>
+                    <div class="col-md-3">
+                      <h4>Team Members</h4>
+
+                      <div style="border: 1px solid #ced4da;" >
+                        
+                          <!-- <select class="select32" formControlName="team_member" [multiple]="true" [ngClass]="{
+                            'is-invalid': submitted && p.team_member.errors
+                          }">
+                            <option>Select Team Members</option>
+                            <option *ngFor="let allEmployeesEach of allEmployees " value="{{allEmployeesEach.id}}">{{allEmployeesEach.first_name+' '+allEmployeesEach.last_name}}</option>
+                          </select> -->
+
+                          <ng-multiselect-dropdown  [ngClass]="{
+                            'is-invalid': submitted && p.client.errors
+                          }"
+                          
+  [placeholder]="'select'"
+  [settings]="dropdownSettings"
+  [data] = "dropdownList"
+  [(ngModel)]="selectedItems"
+  (onSelect)="onItemSelect($event)"
+  (onSelectAll)="onSelectAll($event)"
+  formControlName="team_member"
+>z
+</ng-multiselect-dropdown>
+
+         
+
+<!-- 
+ <div
+                              *ngIf="
+                              p.team_member.invalid &&
+                                (p.team_member.dirty || p.team_member.touched)
+                              "
+                              class="form-label text-danger"
+                            > -->
+                              <!-- <div *ngIf="p.team_member?.errors?.['required']">
+                                Team member is required.
+                              </div> -->
+<!-- </div>  -->
+                        
+
+
+                      
+                      </div>
+<!--                                                
+<div
+*ngIf="team_member?.invalid && (team_member?.dirty || team_member?.touched)
+"
+class="form-label text-danger"
+>
+<div *ngIf="team_member?.errors?.['required']">
+  Team member is required.
+</div>
+</div>    -->
+                    </div>
+                    <div class="col-md-1  header12 ">
+                      <button type="submit" class="btn btn-primary" (click)="addProject()">Submit</button>
+                    </div>
+                  </div>
+                  <table class="table table-bordered mt-3">
+                    <thead><tr>
+                      <th> S.No.</th>
+                      <th>Project Owner </th>
+                      <th>Client</th>
+                      <th>Project </th>
+                      <th>Team Member</th>
+                      <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr  *ngFor="let allProjectsEach of allProjects; let i = index;">
+                      <td>{{i+1}}</td>
+                      <td>{{allProjectsEach.project_owner}}</td>
+                      <td>{{allProjectsEach.client}}</td>
+                      <td>{{allProjectsEach.project}}</td>
+                     <td> {{allProjectsEach.team_member}}</td>
+                      <!-- <td>
+                        {{getEmployeeName(allProjectsEach.team_member)}}<!--<li *ngFor="let memberEach of allProjectsEach.team_member;"></li>-->
+                      <!-- </td>  -->
+                      <td>
+                        <a (click)="deleteProject(allProjectsEach.id)">
+                          <i class="fas fa-trash"></i>
+                        </a>&nbsp;&nbsp;
+                        <a  [routerLink]="['/edit-projects/'+allProjectsEach.id]">
+                          <i class="fas fa-edit"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    <!-- <tr><td></td><td></td><td></td><td></td><td></td></tr> -->
+                  </tbody></table>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div><app-footer></app-footer></div>
+      </div>
+

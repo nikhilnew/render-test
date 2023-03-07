@@ -1,0 +1,631 @@
+<div><app-header></app-header></div>
+
+<!-- end header code here............... -->
+<!-- start leftpanel code here............... -->
+<div><app-left-panel></app-left-panel></div>
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-12">
+          <strong>
+            <h1 class="m-0">Timesheet</h1>
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="card p-4">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pills-summary-tab" data-bs-toggle="pill" data-bs-target="#pills-summary"
+              type="button" role="tab" aria-controls="pills-Summary" aria-selected="true"
+              [ngClass]="{ 'active':activeTab==='pills-summary'}" (click)="switchsummary('pills-summary')">Summary</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link " id="pills-info-tab" data-bs-toggle="pill" data-bs-target="#pills-info"
+              type="button" role="tab" aria-controls="pills-info" aria-selected="true"
+              [ngClass]="{ 'active':activeTab==='pills-info'}" (click)="switchtabinfo('pills-info',$event)"
+              >Info</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-attachment-tab" data-bs-toggle="pill" data-bs-target="#pills-attachment"
+              type="button" role="tab" aria-controls="pills-attachment" aria-selected="false"
+              [ngClass]="{ 'active':activeTab==='pills-attachment'}" (click)="switchnotes('pills-attachment',$event)"
+              >Attachment</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-notes-tab" data-bs-toggle="pill" data-bs-target="#pills-notes"
+              type="button" role="tab" aria-controls="pills-notes" aria-selected="false"
+              [ngClass]="{ 'active':activeTab==='pills-notes'}" (click)="switchattach('pills-notes',$event)"
+              >Notes</button>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+          <!-- summary -->
+          <div class="tab-pane fade show active" id="pills-summary" [ngClass]="{ 'active':activeTab==='pills-summary'}" role="tabpanel" aria-labelledby="pills-summary-tab">
+            <div class="card card-default">
+              <div class="card-header">
+
+
+                <form [formGroup]="Timesheet"  (ngSubmit)="search()">
+                <div class="row pt-4">
+                  <div class="col-md-2">
+                    <input type="date" name="" class="form-control" id="" placeholder="Month" formControlName="Date">
+                  </div>
+
+                  <!-- <div class="col-md-4">
+                    <input type="text" class="form-control"  [(ngModel)]="searchText1"  placeholder="Enter Employee Id / Name / Designation" >
+                  </div> -->
+
+                  <div class="col-md-2">
+                    <select name="" id="ab" class="form-select; form-control"  formControlName="Clients">
+                      <option value="" disabled>Select Client</option>
+                      <option value={{item.Clients}} *ngFor="let item of timesheetData">{{item.Clients}}</option>
+
+                    </select>
+                  </div>
+                  <div class="col-md-2">
+                    <select name="" id="ab" class="form-select; form-control" formControlName="Project">
+                      <option value="" disabled>Select Project</option>
+                      <option value={{item.Project}} *ngFor="let item of timesheetData">{{item.Project}}</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-2">
+                    <button class="btn btn-primary" type="submit" >Search</button>
+                  </div>
+                
+
+
+
+                </div>
+              </form>
+                <hr>
+                <div class="row">
+                  <div class="col-md-2">
+                    <select name="" id="ab" class="form-select">
+                      <option value="">Page Records </option>
+                      <option value="">50</option>
+                      <option value="">100</option>
+                      <option value="">All</option>
+
+
+
+                    </select>
+                  </div>
+
+                  <div class="col-md-10 text-right">
+                    <a href="#info" class="btn btn-primary " (click)="switchtabinfo('pills-info',$event)">
+
+                      Add
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+              <form method="get" [formGroup]="Timesheet">
+
+                <table class="table table-bordered tableA">
+                  <tr>
+                    <th>S No.</th>
+                    <th> Employe ID</th>
+                    <th>Employe Name </th>
+                    <th>Location</th>
+                    <th>Designation </th>
+                    <th>Month</th>
+                    <th>Action</th>
+                  </tr>
+
+
+                  <tr *ngFor="let item of searched||nik.data; let i = index;">
+
+                    <td>{{i+1}}</td>
+                    <td (click)="switchtabinfo('pills-info',$event)">{{item.emp_id}}</td>
+                    <td>{{item.emp_name}}</td>
+                    <td>{{item.location}}</td>
+                    <td>{{item.designation}}</td>
+                    <td>{{item.joining_date | date : "mediumDate"}}</td>
+
+
+
+                    <!-- <td *ngIf="(item.Date | date:'yyyy-MM-dd') == (date | date:'yyyy-MM-dd')"> -->
+                    <td>
+                      <!-- <a class="cursor-pointer" (click)="deleteTimesheet(item.id)">
+                        <i class="fas fa-trash"></i>
+                      </a> -->
+                      <a class="cursor-pointer" (click)="switchattach('pills-info',$event)">
+                        <i class="fas fa-edit"></i>
+                      </a>
+                    </td>
+                  </tr>
+
+                </table>
+              </form>
+              <div class="row p-4">
+                <div class="dataTables_info col-6" id="example2_info" role="status" aria-live="polite">Showing 1 to 3 of
+                  3 entries</div>
+                <div class="dataTables_paginate paging_simple_numbers col-md-6 text-right" id="example2_paginate"><a
+                    class="paginate_button previous disabled" aria-controls="example2" data-dt-idx="0" tabindex="-1"
+                    id="example2_previous">Previous</a><span><a class="paginate_button current" aria-controls="example2"
+                      data-dt-idx="1" tabindex="0">1</a></span><a class="paginate_button next disabled"
+                    aria-controls="example2" data-dt-idx="2" tabindex="-1" id="example2_next">Next</a></div>
+              </div><br><br>
+            </div>
+          </div>
+          <!-- /summary -->
+          <!-- Info -->
+          <div class="tab-pane fade " id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab"  [ngClass]="{ 'active':activeTab==='pills-info'}">
+            <div class="card card-default">
+              <form method="get" [formGroup]="Timesheet1">
+              <div class="card-header">
+                <div class="image" style="display: flex;">
+                  <div class="class p-1">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                  </div>&emsp;
+                  <img class="navimg"
+                    src="https://res.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_256,w_256,f_auto,g_faces,z_0.7,q_auto:eco,dpr_1/kairkvolel5gulu5ejqg"
+                    alt="Bootstrap" width="40" height="34">&emsp;
+                  <h5>{{this.nameByid}} {{this.findByid}}</h5>
+                </div>
+                <br>
+                <div class="row"></div>
+
+                <table class="table  tableA">
+                  <tr>
+                    <th>S No.</th>
+                    <th>Date </th>
+                    <th>Clients</th>
+                    <th>Project </th>
+                    <th>Task</th>
+                    <th>Working Hours</th>
+                    <th>Action</th>
+                  </tr>
+
+
+                  <tr *ngFor="let item of timesheetData1||timesheetData;let i = index;">
+                    <!-- <td>{{item.TimeSheetId}}</td> -->
+                    <td>{{i+1}}</td>
+                    <td>{{item.Date | date : "mediumDate"}}</td>
+                    <td>{{item.Clients}}</td>
+                    <td>{{item.Project}}</td>
+                    <td>{{item.Task}}</td>
+                    <td>{{item.WorkingHours}}</td>
+                    <td *ngIf="(item.Date | date:'yyyy-MM-dd') != (date | date:'yyyy-MM-dd')">Saved</td>
+                    <td *ngIf="(item.Date | date:'yyyy-MM-dd') == (date | date:'yyyy-MM-dd')">
+                      <a class="cursor-pointer" (click)="deleteTimesheet(item.TimeSheetId)" (click)="switchtabinfo('pills-info',$event)">
+
+                        <i class="fas fa-trash"></i>
+                      </a>
+                      <a class="cursor-pointer" (click)="editTimesheet(item.TimeSheetId)">
+
+                        <i class="fas fa-edit"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>5</td>
+                    <td>
+                      <input type="date" name="date" [(ngModel)]="date" class="form-control" id="date" min="2023-03-01" max="2050-03-01"
+                        placeholder="Date">
+                    </td>
+
+                    <td>
+                      <select name="" id="ab" class="form-select" (change)="clientChanged($event)">
+                        <option selected="selected" value="" disabled>select client</option>
+                        <option *ngFor="let item of projectData">{{item.client_name}}</option>
+                      </select>
+                    </td>
+
+
+                    
+                    <td>
+                      <select name="" id="ab" class="form-select" (change)="projectChanged($event)">
+                        <option selected="selected" value="" disabled>select Project</option>
+                        <option *ngFor="let item of projectData">{{item.project_name}}</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input type="text" name="task" value="" [(ngModel)]="Task" class="form-control" id="task" (click)="taskChanged($event)"
+                        placeholder="Enter task">
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-light border btn-sm">
+                        <a (click)="checkTimeSheet()">
+                          {{format(hours) }}:{{ format(minutes) }}:{{ format(seconds) }} <i
+                            class="fas fa-clock"></i></a>
+                      </button>
+                    </td>
+                    <td>
+
+                      <a class="cursor-pointer" (click)="createTimeSheet()">
+                        <i class="fas fa-save"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <!-- <tr>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr> -->
+                </table>
+
+
+                
+                <div class="col-md-12 row">
+                  <div class=col-md-4>
+                    <h4 class="ml-5">Total Hours:</h4>
+                  </div>
+                  <div class=col-md-4></div>
+                  <div class=col-md-2></div>
+                  <div class="col-md-2">
+                    <button type="button" class="btn btn-light border btn-sm">
+                      <a (click)="checkTimeSheet()">
+                        {{format(hours) }}:{{ format(minutes) }}:{{ format(seconds) }} <i class="fas fa-clock"></i></a>
+                    </button>
+                  </div>
+                </div>
+                <br>
+
+              </div>
+              </form>
+            </div>
+          </div>
+          <!-- /Info -->
+          <div class="tab-pane fade" id="pills-attachment" role="tabpanel" aria-labelledby="pills-attachment-tab"  [ngClass]="{ 'active':activeTab==='pills-attachment'}" >
+            <div class="row">
+              <form>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="">Attachment Information</label>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <select class="form-control" id="">
+                      <option>Passport size photo</option>
+                      <option>Resume</option>
+                      <option>Aadhaar Card</option>
+                      <option>Pan Card</option>
+                      <option>High School certificate</option>
+                      <option>Higher Secondary certificcate</option>
+                      <option>Graduation</option>
+                      <option>Post Graduation</option>
+                      <option>Previous organization Appointment letter</option>
+                      <option>last 3 months Salary Slip</option>
+                      <option>Resignation letter / screenshot of resignation mail send by candidate and also
+                        approved by organization</option>
+
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <div class="custom-file">
+                      <input class="custom-file-input" id="customFile" type="file">
+                      <label class="custom-file-label" for="customFile">Upload Documents</label>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-12"> <a href="candidate.html" class="btn btn-primary">Save and
+                      Add</a> </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="">Done 26 August 2021 12:30 PM | Doctype : Passport size photo</label>
+                    <span class="pull-right"><a href="" title="Edit"><i class="fa fa-download"></i></a> <a href=""
+                        title="Delete"><i class="fa fa-trash"></i></a></span>
+                    <div class="col-md-12">
+                      <p>• <a href="">Abcd.png</a></p>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="">Done 26 August 2021 12:31 PM | Doctype : Resume</label>
+                    <span class="pull-right"><a href="" title="Edit"><i class="fa fa-download"></i></a> <a href=""
+                        title="Delete"><i class="fa fa-trash"></i></a></span>
+                    <div class="col-md-12">
+                      <p>• <a href="">Resume.docx</a></p>
+                    </div>
+                  </div>
+                </div>
+                
+              </form>
+
+
+              <!-- <form
+              [formGroup]="attachmentForm"
+              (ngSubmit)="attachment()"
+            >
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for=""
+                    >Attachment Information<span class="required"
+                      >*</span
+                    ></label
+                  >
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <select
+                    (change)="selectAttach($event.target)"
+                    class="form-control"
+                    formControlName="select"
+                    Placeholder="Select Attachment"
+                    id="floatingInput1"
+                    [ngClass]="{
+                      'is-invalid': submitted && A.select.errors
+                    }"
+                  >
+                    <option value="" [selected]="true" disabled>
+                      Select Attachment
+                    </option>
+                     
+                    <option *ngFor="let a of attachOptions" [value]="a">
+                      {{ a }}
+                    </option>
+                  </select>
+
+                  <div
+                    *ngIf="submitted && A.select.errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="A.select.errors.required">
+                      Attachment is required
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <div class="custom-file">
+                   <input class="custom-file-input" id="customFile" type="file"   /> -->
+
+                    <!-- <label class="custom-file-label" for="customFile">Upload Documents</label> -->
+                    <!-- <input
+                      type="hidden"
+                      formControlName="email"
+                      id="email"
+                      placeholder="{{ this.data.c }}"
+                    />
+                    <input
+                      class="custom-file-label"
+                      for="customFile"
+                      type="file"
+                      (change)="onChange($event)"
+                      formControlName="profile"
+                      id="profile"
+                      class="form-control"
+                      [ngClass]="{
+                        'is-invalid': submitted && A.profile.errors
+                      }"
+                    />
+                    <div
+                      class="form-label text-danger"
+                      *ngIf="this.selectedattachfile == true"
+                    >
+                      Please select valid file type
+                    </div>
+                    <div
+                      *ngIf="submitted && A.profile.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="A.profile.errors.required">
+                        File is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12"> -->
+                  <!-- <a  class="btn btn-primary">Save and Add</a></div> -->
+                  <!-- <button class="btn btn-primary" (click)="attachment();GetAttachments();"   >Save and Add</button></div> -->
+                  <!-- <button class="btn btn-primary" type="submit">
+                    Save and Add -->
+                  <!-- </button>
+                </div>
+              </div>
+
+              <div
+                class="form-group col-md-3 container"
+                *ngIf="loading"
+              >
+                <p>Loading data.............</p>
+              </div>
+
+              <hr /> -->
+              <!-- {{fetchAttachment | json}} -->
+              <!-- <div class="row" *ngFor="let i of fetchAttachment" > -->
+              <!-- <div class="row" *ngFor="let i of fetchAttachment; let a=index" >
+               
+                 {{i | json}}
+              </div> -->
+
+              <!-- <table>
+                <tr>
+                  <th>
+                 abcd
+                </th></tr>
+                <tr *ngFor="let i of fetchAttachment;">
+                  <td>{{i|json}}</td>
+                </tr> -->
+              <!-- </table> -->
+              <!-- <div
+                class="overflow-auto p-3 bg-light"
+                style="max-width: 60%; max-height: 250px"
+              >
+                <div
+                  class="row"
+                  *ngFor="let i of fetchAttachment; let a = index"
+                >
+                  <div class="col-md-12">
+                    <label for=""
+                      >Done
+                      {{ i.created_at | date : "MMM d, y, hh:mm:ss a" }}
+                      | Doctype : {{ i.type }}</label
+                    >
+                    <span class="pull-right"
+                      ><a title="Edit">
+                        <i class="fa fa-download" (click)="downloadAttachment()">
+                        <i
+                          class="fa fa-download"
+                          (click)="download(a)"
+                          style="color: rgb(7, 11, 241)"
+                        ></i>
+                      </a>
+                      <a title="Delete">
+                        <i
+                          class="fa fa-trash"
+                          (click)="deleteAttachment(i.id)"
+                          style="color: rgb(7, 11, 241)"
+                        ></i></a
+                    ></span>
+                    <div class="col-md-12">
+                      <p>
+                        •
+                        <a style="color: blue">{{ i.originalname }}</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr />
+            </form> -->
+            </div>
+          </div>
+          <div class="tab-pane fade" id="pills-notes" role="tabpanel" aria-labelledby="pills-notes-tab"  [ngClass]="{ 'active':activeTab==='pills-notes'}">
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="">Add Notes</label>
+                  <textarea class="form-control" placeholder="Notes"></textarea>
+                  <a href="candidates.html" class="btn btn-primary mt-1">Save and Add</a>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-12">
+                  <label for="">Done 26 August 2021 12:40 PM </label>
+                  <span class="pull-right"><a href="" title="Edit"><i class="fa fa-edit"></i></a> <a href=""
+                      title="Delete"><i class="fa fa-trash"></i></a></span>
+                  <input type="text" class="form-control" placeholder="Message">
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-12">
+                  <label for="">Done 26 August 2021 12:45 PM </label>
+                  <span class="pull-right"><a href="" title="Edit"><i class="fa fa-edit"></i></a> <a href=""
+                      title="Delete"><i class="fa fa-trash"></i></a></span>
+                  <input type="text" class="form-control" placeholder="Message">
+                </div>
+              </div>
+            </form>
+
+            <!-- <form
+            method="post"
+            [formGroup]="notesForm"
+            (ngSubmit)="notes(data)"
+          >
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for=""
+                  >Add Notes<span class="required">*</span></label
+                >
+                <textarea
+                  class="form-control"
+                  placeholder="Notes"
+                  id="floatingInput"
+                  formControlName="add_notes"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid': submitted && n.add_notes.errors
+                  }"
+                  id="inputadd_notes4"
+                ></textarea>
+                <div
+                  *ngIf="submitted && n.add_notes.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="n.add_notes.errors.required">
+                    Notes is required
+                  </div>
+                </div>
+                 <a class="btn btn-primary mt-1" (click)="notes()">Save and Add</a> -->
+                <!-- <button type="submit" class="btn btn-primary mt-1">
+                  {{ editMode ? "Update Notes" : "Save and Add" }} -->
+
+                  <!-- {{editMode! "Save and Add"}} -->
+                <!-- </button>
+              </div>
+            </div>
+            <hr /> -->
+            <!-- {{ fetchNotes | json }} -->
+            <!-- <div
+              class="overflow-auto"
+              style="max-width: 60%; max-height: 250px"
+            >
+              <div class="row" *ngFor="let i of fetchNotes; index as n">
+                <div class="col-md-12">
+                  <label for=""
+                    >Done {{ i.created_at | date : "medium" }}
+                  </label>
+                  <span class="pull-right"> -->
+                    <!-- <a title="Edit" style="color: rgb(7, 11, 241); "><i class="fa fa-edit" (click)="updateNotes(i.Id)" ></i></a> -->
+                    <!-- <a title="Edit" style="color: rgb(7, 11, 241)"
+                      ><i
+                        class="fa fa-edit"
+                        (click)="updateNotes(i.Id, n)"
+                      ></i
+                    ></a>
+
+                    <a title="Delete" style="color: rgb(7, 11, 241)"
+                      ><i
+                        class="fa fa-trash"
+                        (click)="deleteNotes(i.Id)"
+                      ></i></a
+                  ></span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="{{ i.add_notes }}"
+                    disabled
+                  />
+                </div>
+              </div>
+            </div>
+          </form> --> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- start footer code here............... -->
+<div><app-footer></app-footer></div>
+<!-- end footer code here............... -->

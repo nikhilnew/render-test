@@ -1,0 +1,133 @@
+
+
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+      <!-- <div class="preloader flex-column justify-content-center align-items-center"> <img class="animation__shake"
+          src="../../../assets/dist/img/logo.png" alt="Logo" height="60" width="60"> </div> -->
+  
+  
+          <div><app-header></app-header></div>
+        
+          <!-- end header code here............... -->
+          <!-- start leftpanel code here............... -->
+          <div ><app-left-panel></app-left-panel></div>
+          <!-- end leftpanel code here............... -->
+  
+  
+      
+      <div class="content-wrapper"style="height: auto; background-color:#F2EDF3" >
+        <div class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-12">
+                <h1 class="m-0">Register Employee</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section class="content">
+          <div class="container-fluid">
+            <div class="card card-default">
+              <div class="card-header">
+                <h3 class="card-title">Create user login detail</h3>
+              </div>
+              <p class="pl-2"> Fill in the mandatory fields, and click submit. Employee gets email with all these details.</p>
+              <div class="card-body">
+                <form method="post" [formGroup]="registerForm" (ngSubmit)="inviteProcess()">
+                <div class="form-group row">
+                  <label for="" class="col-md-2 pl-5">Employee Name <span class="" style="color:red;">*</span>
+                  </label>
+                  <div class="col-md-6">
+                  <input type="text" class="form-control col-md-8"  id="floatingInput"placeholder="Employee Name"formControlName="emp_name"[ngClass]="{ 'is-invalid': submitted && f.emp_name.errors }" id="inputemp_name4">
+                  <div   *ngIf="submitted && f.emp_name.errors" class="invalid-feedback col-md-6">
+                    <div *ngIf="f.emp_name.errors.required"  >Employee Name is required</div>
+                 </div></div>
+                </div>
+                <div class="form-group row">
+                  <label for="" class="col-md-2 pl-5">Employee Id <span class="" style="color:red;">*</span>
+                  </label>
+                  <div class="col-md-6">
+                  <input type="text" class="form-control col-md-8"   id="floatingInput" placeholder="Employee Id "formControlName="emp_id"[ngClass]="{ 'is-invalid': submitted && f.emp_id.errors }" id="inputemp_id4">
+                  <div *ngIf="submitted && f.emp_id.errors" class="invalid-feedback col-md-6">
+                    <div *ngIf="f.emp_id.errors.required">Employee Id is required</div>
+                 </div>
+                </div></div>
+                <div class="form-group row">
+                    <label for="" class="col-md-2 pl-5">Joining Date <span class="" style="color:red;">*</span>
+                    </label>
+                    <div class="col-md-6">
+                    <input type="text" class="form-control col-md-8"  id="floatingInput"placeholder="Joining Date"formControlName="joining_date"[ngClass]="{ 'is-invalid': submitted && f.joining_date.errors }" id="inputjoining_date4">
+                    <div   *ngIf="submitted && f.joining_date.errors" class="invalid-feedback col-md-6">
+                      <div *ngIf="f.joining_date.errors.required"  >Joining Date is required</div>
+                   </div></div>
+                 
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-md-2 pl-5">Designation <span class="" style="color:red;">*</span>
+                    </label>
+                    <div class="col-md-6">
+                    <input type="text" class="form-control col-md-8"  id="floatingInput"placeholder="Designation"formControlName="designation"[ngClass]="{ 'is-invalid': submitted && f.designation.errors }" id="inputdesignation4">
+                    <div   *ngIf="submitted && f.designation.errors" class="invalid-feedback col-md-6">
+                      <div *ngIf="f.designation.errors.required"  >Designation is required</div>
+                   </div>
+                </div>
+                  
+                </div>
+
+                <div class="form-group row">
+                  <label for="" class="col-md-2 pl-5">Company Email id <span class="" style="color:red;">*</span>
+                  </label>
+                  <div class="col-md-6">
+                  <input type="email" class="form-control col-md-8"  id="floatingInput" placeholder="Company Email id"  formControlName="company_email_id"  [ngClass]="{ 'is-invalid': submitted && f.company_email_id.errors }"  id="inputcompany_email_id4">
+                  <div *ngIf="submitted && f.company_email_id.errors" class="invalid-feedback col-md-6">
+                    <div *ngIf="f.company_email_id.errors.required">Company Email id is required</div>
+                    <!-- <div *ngIf="f.company_email_id.errors.company_email_id">company_email_id must be a valid company_email_id address</div> -->
+                    <div *ngIf="f.company_email_id.errors.pattern">Company Email id must be a valid email address</div>
+  
+                  </div></div>
+               
+                </div>
+                <div class="form-group row">
+                  <label for="" class="col-md-2 pl-5">Password <span class="" style="color:red;">*</span>
+                  </label>
+                  <div class="col-md-6">
+                  <input type="password" class="form-control col-md-8"  id="floatingpassword" placeholder="Password"formControlName="password"[ngClass]="{ 'is-invalid': submitted && f.password.errors }" id="inputpassword4">
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback col-md-6">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                 </div>
+                </div></div>
+
+                <div class="form-group row">
+                    <label for="" class="col-md-2 pl-5">Personal Email id <span class="" style="color:red;">*</span>
+                    </label>
+                    <div class="col-md-6">
+                    <input type="email" class="form-control col-md-8"  id="floatingInput" placeholder="Personal Email id "  formControlName="personal_email_id"  [ngClass]="{ 'is-invalid': submitted && f.personal_email_id.errors }"  id="inputpersonal_email_id4">
+                    <div *ngIf="submitted && f.personal_email_id.errors" class="invalid-feedback col-md-6">
+                      <div *ngIf="f.personal_email_id.errors.required">Personal Email id  is required</div>
+                      <!-- <div *ngIf="f.personal_email_id.errors.personal_email_id">personal_email_id must be a valid personal_email_id address</div> -->
+                      <div *ngIf="f.personal_email_id.errors.pattern">Personal Email id  must be a valid email address</div>
+    
+                    </div></div>
+                 
+                  </div>
+                <!-- <button style="background-color: rgb(84, 84, 224)" >invite user</button> -->
+                <div class="row">
+                  <div class="form-group col-md-2 pl-5 ">
+                    <!-- <a href="invitation-done.html" class="btn btn-primary btn-block">Submit</a> -->
+                    <button type="submit"  class="btn btn-primary btn-block">Submit</button>
+                  </div>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+     
+      </section>
+       
+    </div> 
+    <div><app-footer></app-footer></div>
+   </div>
+    
+  </body>
+  

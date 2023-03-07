@@ -1,0 +1,195 @@
+
+
+
+<div><app-header></app-header></div>
+      
+<!-- end header code here............... -->
+<!-- start leftpanel code here............... -->
+<div ><app-left-panel></app-left-panel></div>
+<!-- end leftpanel code here............... -->
+<div class="content-wrapper" style="height: auto;">
+<div class="content-header">
+
+    <div class="container-fluid">
+
+        <div class="row mb-2">
+
+            <div class="col-sm-12">
+
+                <h1 class="m-0">Employee</h1>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- /.card-header -->
+
+<div class="card-body">
+
+    <form method="post" [formGroup]="DepartmentDetails" (ngSubmit)="submitData()">
+
+        <div class="active tab-pane" id="info">
+
+            <div class="card card-default">
+
+                <div class="card-header">
+
+                    <div class="form-group row ">
+
+                        <label class="col-md-2 ">Employee Id<span class="text-danger">*</span></label>
+
+                        <input type="text" class="form-control col-md-4" id="text" placeholder="Enter Employee Id" formControlName="emp_id">
+
+                        <div *ngIf="submitted && f.emp_id.errors" class="invalid-feedback">
+
+                            <div *ngIf="f.emp_id.errors.required">Employee Id is required</div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row ">
+
+                        <label class="col-md-2 ">Employee Name<span class="text-danger">*</span></label>
+
+                        <input type="text" class="form-control col-md-4" placeholder="Enter Employee Name" id="fn" formControlName="emp_name">
+
+                        <div *ngIf="submitted && f.emp_name.errors" class="invalid-feedback">
+
+                            <div *ngIf="f.emp_name.errors.required">Employee Name is required</div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row ">
+
+                        <label class="col-md-2 ">Date<span class="text-danger">*</span></label>
+
+                        <input type="date" class="form-control col-md-4" placeholder="Enter " id="fn" formControlName="joining_date">
+
+                        <div *ngIf="submitted && f.joining_date.errors" class="invalid-feedback">
+
+                            <div *ngIf="f.joining_date.errors.required">Date is required</div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group row ">
+
+                        <label class="col-md-2 ">Designation<span class="text-danger">*</span></label>
+
+                        <input type="text" class="form-control col-md-4" placeholder="Enter designation" id="fn" formControlName="designation">
+
+                        <div *ngIf="submitted && f.MailAlias.errors" class="invalid-feedback">
+
+                            <div *ngIf="f.MailAlias.errors.required">Designation is required</div>
+
+                        </div>
+
+                    </div>
+
+                   
+                    <div class="form-group row ">
+
+                        <label class="col-md-2">Location</label>
+
+                        <select class=" col-md-4 form-control" id="location" formControlName="location">
+
+                            <option value="" disabled>Select Location</option>
+
+                            <option value="Mumbai">Mumbai </option>
+
+                            <option value="Delhi">Delhi</option>
+
+                            <option value="Hyderabad">Hyderabad </option>
+
+                            <option value="Chennai">Chennai </option>
+
+                            <option value="Kolkata">Kolkata</option>
+
+                            <option value="Banglore">Banglore</option>
+
+                        </select>
+
+                        <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+
+                            <div *ngIf="f.location.errors.required">Location is required</div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group row ">
+
+                        <label class="col-md-2 ">Company Email Id<span class="text-danger">*</span></label>
+
+                        <input type="email" class="form-control col-md-4" placeholder="Enter Company Email Id" id="fn" formControlName="company_email_id">
+
+                        <div *ngIf="submitted && f.company_email_id.errors" class="invalid-feedback">
+
+                            <div *ngIf="f.company_email_id.errors.required">Company Email Id is required</div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row ">
+
+                        <label class="col-md-2 ">Password<span class="text-danger">*</span></label>
+
+                        <input type="Passsword" class="form-control col-md-4" placeholder="Enter Password" id="fn" formControlName="password">
+
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group row ">
+
+                        <label class="col-md-2 ">Personal Email Id<span class="text-danger">*</span></label>
+
+                        <input type="email" class="form-control col-md-4" placeholder="Enter Personal Email Id" id="fn" formControlName="personal_email_id">
+
+                        <div *ngIf="submitted && f.personal_email_id.errors" class="invalid-feedback">
+
+                            <div *ngIf="f.personal_email_id.errors.required">Personal Email Id is required</div>
+
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mb-1">Submit</button>
+                 
+                    
+                     <!-- <button  type="submit" class="btn btn-primary ml-2 mb-1" [routerLink]="['/department-details']" (click)="exit()">Submit and New</button> -->
+                    <button type="submit" class="btn btn-primary ml-2 mb-1" [routerLink]="['/timesheet/']">Cancel</button>
+                        
+
+                </div>
+
+            </div>
+
+        </div>
+
+        
+
+    </form>
+
+</div>
+</div>
+
+<!-- start footer code here............... -->
+<div><app-footer></app-footer></div>
+<!-- end footer code here............... -->

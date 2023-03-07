@@ -1,0 +1,415 @@
+
+  <body class="hold-transition sidebar-mini layout-fixed">
+    <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Please fill the attachment and notes form then the employee form will be submitted
+      </div>
+      <div class="modal-footer">
+        <a href="candidate.html">
+        <button type="button" class="btn btn-primary">OK</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="wrapper" >
+     
+      <div><app-header></app-header></div>
+      
+      <!-- end header code here............... -->
+      <!-- start leftpanel code here............... -->
+      <div ><app-left-panel></app-left-panel></div>
+      <!-- end leftpanel code here............... -->
+      <div class="content-wrapper"style="height:auto;">
+        <div class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-12">
+               <strong><h1 class="m-0">Employee</h1></strong> 
+              </div>
+            </div>
+          </div>
+        </div>
+        <section class="content">
+          <div class="container-fluid">
+            <div class="card p-3">
+              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-info-tab" data-bs-toggle="pill" data-bs-target="#pills-info" type="button" role="tab" aria-controls="pills-info" aria-selected="true">Info</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-attachment-tab" data-bs-toggle="pill" data-bs-target="#pills-attachment" type="button" role="tab" aria-controls="pills-attachment" aria-selected="false">Attachment</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-notes-tab" data-bs-toggle="pill" data-bs-target="#pills-notes" type="button" role="tab" aria-controls="pills-notes" aria-selected="false">Notes</button>
+                </li>
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab">
+                  <div class="card card-default">
+                    <div class="card-header">
+                      <h3 class="card-title"><strong> Candidate Details </strong></h3>
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"> <i
+                            class="fas fa-minus"></i> </button>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="form-group col-md-6">
+                          <label for="">First Name <span class="text-danger">*</span>
+                          </label>
+                          <input type="text" class="form-control" id="" placeholder="First Name">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="">Last Name <span class="text-danger">*</span>
+                          </label>
+                          <input type="text" class="form-control" id="" placeholder="Last Name">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="">Email <span class="text-danger">*</span>
+                          </label>
+                          <input type="email" class="form-control" id="" placeholder="Enter email">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="">Date of Birth <span class="text-danger">*</span>
+                            </label>
+                            <input type="date" class="form-control" id="" placeholder="Phone">
+                          </div>
+                        <div class="form-group col-md-6">
+                          <label for="">Phone <span class="text-danger">*</span>
+                          </label>
+                          <input type="number" class="form-control" id="" placeholder="Phone">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="">Official Email <span class="text-danger">*</span>
+                          </label>
+                          <input type="email" class="form-control" id="" placeholder="Official Email">
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card card-default">
+                    <div class="card-header">
+                      <h3 class="card-title">
+                        <strong>Present address</strong>
+                      </h3>
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                          <i class="fas fa-minus"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="form-group col-md-12">
+                          <input type="checkbox">
+                          <label for="">Same Address <span class="text-danger">*</span>
+                          </label>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="">Street Address</label>
+                          <input type="text" class="form-control" id="" placeholder="Street Address">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="">State/Province</label>
+                          <input type="text" class="form-control" id="" placeholder="State/Province">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="">City <span class="text-danger">*</span>
+                          </label>
+                          <input type="email" class="form-control" id="" placeholder="City">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="">ZIP/PIN Code <span class="text-danger">*</span>
+                          </label>
+                          <input type="number" class="form-control" id="" placeholder="ZIP/PIN Code">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="">Country <span class="text-danger">*</span>
+                          </label>
+                          <select class="form-control select2">
+                            <option selected="selected">Select here</option>
+                            <option>India</option>
+                            <option>California</option>
+                            <option>Delaware</option>
+                            <option>Tennessee</option>
+                            <option>Texas</option>
+                            <option>Washington</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card card-default">
+                    <div class="card-header">
+                      <h3 class="card-title">
+                        <strong>Professional Details</strong>
+                      </h3>
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                          <i class="fas fa-minus"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="form-group col-md-6">
+                          <label for="">Experience <span class="text-danger">*</span>
+                          </label>
+                          <input type="text" class="form-control" id="" placeholder="Experience">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="">Current Salary <span class="text-danger">*</span>
+                          </label>
+                          <input type="text" class="form-control" id="" placeholder="Current Salary">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="">Source of Hire</label>
+                          <select class="form-control select2">
+                            <option selected="selected">Select here</option>
+                            <option>Direct</option>
+                            <option>Newspaper</option>
+                            <option>Advertisement</option>
+                            <option>Facebook</option>
+                            <option>Twitter</option>
+                            <option>Gapps</option>
+                          </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="">Skill Set <span class="text-danger">*</span>
+                          </label>
+                          <input type="email" class="form-control" id="" placeholder="Skill Set">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="">Tentative Joining Date</label>
+                          <input type="date" class="form-control" id="" placeholder="Tentative Joining Date">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="">Highest Qualification <span class="text-danger">*</span>
+                          </label>
+                          <input type="text" class="form-control" id="" placeholder="Highest Qualification">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="">Additional information <span class="text-danger">*</span>
+                          </label>
+                          <input type="text" class="form-control" id="" placeholder="Additional information">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card card-default">
+                    <div class="card-header">
+                      <h3 class="card-title">
+                        <strong>Education</strong>
+                      </h3>
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                          <i class="fas fa-minus"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="form-group col-md-3">
+                          <label for="">School Name <span class="text-danger">*</span>
+                          </label>
+                          <input type="text" class="form-control" id="" placeholder="School Name">
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="">Degree/Diploma <span class="text-danger">*</span>
+                          </label>
+                          <input type="text" class="form-control" id="" placeholder="Degree/Diploma">
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="">Field(s) of Study <span class="text-danger">*</span>
+                          </label>
+                          <input type="text" class="form-control" id="" placeholder="Field(s) of Study">
+                        </div>
+                        <div class="form-group col-md-2">
+                          <label for="">Date of Completion <span class="text-danger">*</span>
+                          </label>
+                          <input type="date" class="form-control" id="" placeholder="Date of Completion">
+                        </div>
+                        <div class="form-group col-md-1">
+                          <br>
+                          <button class="btn btn-primary mt-2" onclick="stepper.next()">+</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card card-default">
+                    <div class="card-header">
+                      <h3 class="card-title">
+                        <strong>Experience</strong>
+                      </h3>
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                          <i class="fas fa-minus"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="form-group col-md-2">
+                          <label for="">Occupation <span class="text-danger">*</span>
+                          </label>
+                          <input type="text" class="form-control" id="" placeholder="Occupation">
+                        </div>
+                        <div class="form-group col-md-2">
+                          <label for="">Company <span class="text-danger">*</span>
+                          </label>
+                          <input type="text" class="form-control" id="" placeholder="Company">
+                        </div>
+                        <div class="form-group col-md-2">
+                          <label for="">Summary <span class="text-danger">*</span>
+                          </label>
+                          <input type="text" class="form-control" id="" placeholder="Summary">
+                        </div>
+                        <div class="form-group col-md-2">
+                          <label for="">Duration</label>
+                          <input type="text" class="form-control" id="" placeholder="Duration">
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="">Currently Work Here <span class="text-danger">*</span>
+                          </label>
+                          <select class="form-control select2">
+                            <option selected="selected">Select here</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                          </select>
+                        </div>
+                        <div class="form-group col-md-1">
+                          <br>
+                          <button class="btn btn-primary mt-2" onclick="stepper.next()">+</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-default">
+                    <div class="card-body">
+                      <div class="row">
+                       
+                          <button type="button" class="btn btn-primary mb-1 col-md-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Submit
+                          </button>
+                        <!-- <button class="btn btn-dark ml-2 mb-1 col-md-3" onclick="stepper.next()">Cancel</button> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="pills-attachment" role="tabpanel" aria-labelledby="pills-attachment-tab">
+                  <div class="row">
+                    <form>
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="">Attachment Information</label>
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <select class="form-control" id="">
+                            <option>Passport size photo</option>
+                            <option>Resume</option>
+                            <option>Aadhaar Card</option>
+                            <option>Pan Card</option>
+                            <option>High School certificate</option>
+                            <option>Higher Secondary certificcate</option>
+                            <option>Graduation</option>
+                            <option>Post Graduation</option>
+                            <option>Previous organization Appointment letter</option>
+                            <option>last 3 months Salary Slip</option>
+                            <option>Resignation letter / screenshot of resignation mail send by candidate and also
+                              approved by organization</option>
+  
+                          </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <div class="custom-file">
+                            <input class="custom-file-input" id="customFile" type="file">
+                            <label class="custom-file-label" for="customFile">Upload Documents</label>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-12"> <a href="candidates.html" class="btn btn-primary">Save and
+                            Add</a> </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label for="">Done 26 August 2021 12:30 PM | Doctype : Passport size photo</label>
+                          <span class="pull-right"><a href="" title="Edit"><i class="fa fa-download"></i></a> <a href=""
+                              title="Delete"><i class="fa fa-trash"></i></a></span>
+                          <div class="col-md-12">
+                            <p>• <a href="">Abcd.png</a></p>
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label for="">Done 26 August 2021 12:31 PM | Doctype : Resume</label>
+                          <span class="pull-right"><a href="" title="Edit"><i class="fa fa-download"></i></a> <a href=""
+                              title="Delete"><i class="fa fa-trash"></i></a></span>
+                          <div class="col-md-12">
+                            <p>• <a href="">Resume.docx</a></p>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    </form>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="pills-notes" role="tabpanel" aria-labelledby="pills-notes-tab">
+                  <form>
+                    <div class="form-row">
+                      <div class="form-group col-md-12">
+                        <label for="">Add Notes</label>
+                        <textarea class="form-control" placeholder="Notes"></textarea>
+                        <a href="candidates.html" class="btn btn-primary mt-1">Save and Add</a>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <label for="">Done 26 August 2021 12:40 PM </label>
+                        <span class="pull-right"><a href="" title="Edit"><i class="fa fa-edit"></i></a> <a href=""
+                            title="Delete"><i class="fa fa-trash"></i></a></span>
+                        <input type="text" class="form-control" placeholder="Message">
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <label for="">Done 26 August 2021 12:45 PM </label>
+                        <span class="pull-right"><a href="" title="Edit"><i class="fa fa-edit"></i></a> <a href=""
+                            title="Delete"><i class="fa fa-trash"></i></a></span>
+                        <input type="text" class="form-control" placeholder="Message">
+                      </div>
+                    </div>
+                  
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+    </div>
+   
+<!-- start footer code here............... -->
+<div><app-footer></app-footer></div>
+<!-- end footer code here............... -->
+
+    
+  </div>
+ </body>

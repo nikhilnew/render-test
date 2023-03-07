@@ -1,0 +1,153 @@
+<div class="wrapper">
+  <div><app-header></app-header></div>
+
+  <!-- end header code here............... -->
+  <!-- start leftpanel code here............... -->
+  <div><app-left-panel></app-left-panel></div>
+  <div class="content-wrapper" style="height: auto;">
+    <div class="content-header">
+      <div class="row mb-2">
+        <div class="col-sm-12">
+          <h1>Update Department Details</h1>
+          <br>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+
+                <!-- <div class="col-md-1  header12 ">
+                  <a [routerLink]="['/department']" class="btn btn-primary">Back</a>
+                </div> -->
+
+                <br>
+                <form [formGroup]="EditDepartmentForm">
+                  <div class="row pt-1">
+                    <div class="col-md-6">
+                      <h4>Department Name<span class="text-danger">*</span></h4>
+                      <input type="text" placeholder="Enter Department Name" class="form-control"
+                        formControlName="departmentName">
+                    </div>
+                    <div class="col-md-6">
+                      <h4>Mail Alias<span class="text-danger">*</span></h4>
+                      <input type="text" placeholder="Enter Mail Alias" class="form-control"
+                        formControlName="MailAlias">
+                    </div>
+                    <br><br> <br><br>
+                    <!-- <div class="col-md-6">
+                          <h4> Department Lead<span
+                            class="text-danger">*</span></h4>
+                         
+                          <ng-multiselect-dropdown
+                          formControlName="DepartmentLead"
+                             
+                              [placeholder]="'Enter Department Lead'" [settings]="userSettings"
+                              [data]="departmentList" [(ngModel)]="selectedItems"
+                              (onSelect)="onItemSelect($event)"
+                              (onSelectAll)="onSelectAll($event)">
+
+                          </ng-multiselect-dropdown>
+                        </div> -->
+
+
+                    <!--                       
+<br>
+                  <div class="dropdown"
+                     >
+                     <label for="" class=" pl-3">Parent Department<span
+                      class="text-danger">*</span></label>
+                      <ng-multiselect-dropdown formControlName="User"
+                          [placeholder]="'User'" [settings]="userSettings"
+                          [data]="dropdownList" [(ngModel)]="selectedItems"
+                          (onSelect)="onItemSelect($event)"
+                          (onSelectAll)="onSelectAll($event)">
+
+                      </ng-multiselect-dropdown>
+                      
+                  </div> -->
+                    <!-- 
+                      <div class="col-md-6">
+                        <h4>Parent Department<span
+                          class="text-danger">*</span></h4>   
+                         <ng-multiselect-dropdown formControlName="ParentDepartment"
+                          [placeholder]="'Enter Parent Department'" [settings]="userSettings1"
+                          [data]="departmentList" [(ngModel)]="selectedItems1"
+                          (onSelect)="onItemSelect($event)"
+                          (onSelectAll)="onSelectAll($event)">
+                          
+                      </ng-multiselect-dropdown>                 
+                        
+                      </div> -->
+
+
+                    <div class="form-group col-md-6">
+                      <!-- <label for="">DepartmentLead Manager<span class="text-danger">*</span></label> -->
+                      <h4>DepartmentLead<span class="text-danger">*</span></h4>
+                      <select class="form-control" formControlName="DepartmentLead">
+                        <option value="">Select here</option>
+                        <option value="Sayali Ashish Anande 1 "> Sayali Ashish Anande 1 </option>
+
+                                <option value="Allan Francis S1">Allan Francis S1 </option>
+
+                                <option value="Aleo Kirb S2">Aleo Kirb S2 </option>
+
+                                <option value="Austin Mayer S3 ">Austin Mayer S3 </option>
+
+                                <option value="Charles Mavric S4">Charles Mavric S4</option>
+
+                                <option value="Dave Duken S5">Dave Duken S5</option>
+
+                                <option value="George Dwell S6">George Dwell S6</option>
+
+                                <option value="Jennifer Jackson S7">Jennifer Jackson S7</option>
+
+                                <option value="Morgan Finely S8">Morgan Finely S8 </option>
+
+                                <option value="Ruby Richerds S9">Ruby Richerds S9</option>
+
+                                <option value="Tia Burmen S10">Tia Burmen S10</option>
+                      </select>
+                    </div>
+                    
+                    <div class="form-group col-md-6">
+                      <!-- <label for="">Parent Department<span class="text-danger">*</span></label> -->
+                      <h4>ParentDepartment<span class="text-danger">*</span></h4>
+                      <select class="form-control" formControlName="ParentDepartment">
+                        <option value="">Select here</option>
+                       
+                        <option value="HR">HR </option>
+
+                        <option value="Product">Product</option>
+
+                        <option value="Sales">Sales </option>
+
+                        <option value="Servies">Servies </option>
+
+                        <option value="Information Technology">Information Technology</option>
+
+                        <option value="Marketing">Marketing</option>
+                      </select>
+                    </div>
+
+
+
+                    <div class="col-md-1  header12 ">
+                      <button type="submit" class="btn btn-primary" (click)="updateDepartment()">Submit</button>
+                    </div>
+                    <div class="col-md-1  header12 ">
+                      <button type="submit" class="btn btn-primary" [routerLink]="['/department/']">Cancel</button>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><app-footer></app-footer></div>
+</div>

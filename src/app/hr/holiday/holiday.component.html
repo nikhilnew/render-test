@@ -1,0 +1,121 @@
+<!-- <div><app-left-panel></app-left-panel></div>
+<div><app-header></app-header></div>     -->
+    <!-- <div class="content-wrapper" style="height: auto;"> -->
+       
+       
+
+      <div class="content-header">
+       
+       
+        <div class="row mb-2">
+          <div class="col-sm-12">
+            <h1 class="m-0">Holidays</h1>
+          </div>
+        </div>
+        <div class="container-fluid">
+
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <div class="row pt-1">
+                    <!--<div class="col-md-2">
+                      <select class="custom-select" id="inlineFormCustomSelect"
+                        onchange="location = this.options[this.selectedIndex].value;">
+                        <option selected="">Action</option>
+                        <option value="">Casual Leave</option>
+                        <option value="">Earned Leave</option>
+                        <option value="">Leave Without Pay</option>
+                        <option value="">Maternity Leave</option>
+                        <option value="">Sabbatical Leave</option>
+                        <option value="">Sick Leave</option>
+                        <option value="">Other</option>
+                      </select>
+                    </div>                    
+                    <div class="multiselect form-group col-md-2">
+                      <div class="selectBox form-control" onclick="showCheckboxes()">
+                        <select class="custom-select border-bottom">
+                          <option>Column View</option>
+                        </select>
+                        <div class="overSelect"></div>
+                      </div>
+                      <div id="checkboxes" class="checkstyle">
+                        <label for="one0">
+                          <input type="checkbox" id="one0" />
+                          Select All Options</label>
+                        <label for="two0">
+                          <input type="checkbox" id="two0" />
+                          Name of holiday</label>
+                        <label for="two0">
+                          <input type="checkbox" id="two0" />
+                          Date</label>
+                        <label for="three0">
+                          <input type="checkbox" id="three0" />
+                          Location</label>
+                        <label for="five0">
+                          <input type="checkbox" id="five0" />
+                          Shift</label>
+                        <label for="six0">
+                          <input type="checkbox" id="six0" />
+                          Number of Day</label>
+                        <label for="seven0">
+                          <input type="checkbox" id="seven0" />
+                          Description</label>
+                      </div>
+                    </div>-->
+                    <div class="col-md-12 text-right"><a href="add-holiday" class="btn btn-primary">+ Add
+                        Holiday</a> </div>
+                  </div>
+                </div>
+                <!-- /.card-header -->
+                <form method="get" [formGroup]="Holiday">
+                <div class="card-body">
+                  <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                      <tr >
+                        <th>Name of holiday</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                        <th>HolidayType</th>
+                        <th>No of day</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let pp of nik">
+                        <td><a [routerLink]="['/edit-holiday/'+ pp.HolidayId]">{{pp.Name}}</a></td>
+                        <td>{{pp.Date}}</td>
+                        <td>{{pp.ApplicableFor}}</td>
+                        <td>{{pp.HolidayType}}</td>
+                        <td>{{pp.No_ofday_before_which_the_reminder_should_be_sent}}</td>
+                        <td>{{pp.Description}}</td>
+                       
+                        <td>
+                          <a [routerLink]="['/edit-holiday/'+ pp.HolidayId]" (click)="getdata(pp)">
+                            <i class="fas fa-edit"></i></a> &nbsp;
+                            <a ><i class="fas fa-trash"  (click)="deleteholiday(pp.HolidayId)"></i></a></td>
+                      </tr>
+                    </tbody>
+                    <!--<tfoot>
+                    <tr>
+                      <th>Rendering engine</th>
+                      <th>Browser</th>
+                      <th>Platform(s)</th>
+                      <th>Engine version</th>
+                      <th>CSS grade</th>
+                    </tr>
+                    </tfoot>-->
+                  </table>
+                </div>
+              </form>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+   <!-- <div><app-footer></app-footer></div> -->

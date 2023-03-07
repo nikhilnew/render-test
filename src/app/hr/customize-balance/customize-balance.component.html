@@ -1,0 +1,73 @@
+
+<div><app-header></app-header></div>
+      
+<!-- end header code here............... -->
+<!-- start leftpanel code here............... -->
+<div ><app-left-panel></app-left-panel></div>
+<div class="content-wrapper">
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-12"></div>
+        </div>
+      </div>
+    </div>
+    <section class="content">
+      <div class="container-fluid">
+        <div class="card card-default">
+          <div class="card-header">
+            <strong><h3> Costomized Balance </h3></strong>
+            <div class="col-md-12 text-right">
+              <a href="customize.html" class="btn btn-primary" href="add-customize-balance">+ Customize</a>
+            </div>
+          </div>
+          <div class="form-group col-md-12">
+            <!-- <strong><h3> Costomized Balance </h3></strong> -->
+            
+            <table class="table" border="1" text="center">
+              
+              <tr>
+                <th>S.No.</th>
+                <th rowspan="2">Employee</th>
+                <th colspan="6">Paid</th>
+                <th>Unpaid</th>
+              </tr>
+              <tr><th></th>
+                <th>Casual Leave</th>
+                <th>Earned Leave</th>
+                <th>Maternity Leave</th>
+                <th>Paternity Leave</th>
+                <th>Sabbatical Leave</th>
+                <th>Sick Leave</th>
+                <th>Leave Without Pay</th>
+              </tr>
+              <tr *ngFor="let nh of cust let i = index;">
+                <td>{{i+1}}</td>
+                <th>
+                  
+                  <!-- <img src="https://contacts.zoho.in/file?ID=60011030601&fs=thumb" width="15%" class="rounded" /> -->
+                  <strong> {{nh.employeeId}} &nbsp;{{nh.Employee}} </strong>
+                </th>
+               
+                <td>16  {{nh.name}}</td>
+                <td>15 {{nh.name}}</td>
+                <td>5  {{nh.name}}</td>
+                <td>0  {{nh.name}}</td>
+                <td>16  {{nh.name}}</td>
+                <td>3  {{nh.name}}</td>
+                <td>0  {{nh.name}}</td>
+              </tr>
+              
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+
+  
+        <!-- start footer code here............... -->
+        <div><app-footer></app-footer></div>
+        <!-- end footer code here............... -->

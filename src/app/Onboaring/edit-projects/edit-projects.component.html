@@ -1,0 +1,68 @@
+
+<div class="wrapper">
+  <div><app-header></app-header></div>
+    
+  <!-- end header code here............... -->
+  <!-- start leftpanel code here............... -->
+  <div ><app-left-panel></app-left-panel></div>
+<div class="content-wrapper" style="height: auto;">
+    <div class="content-header">
+      <div class="row mb-2">
+        <div class="col-sm-12">
+          <h1>Update Project/Client details</h1>
+          <br>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+
+                <div class="col-md-1  header12 ">
+                    <a [routerLink]="['/projects']" class="btn btn-primary">Back</a>
+                  </div>
+
+                <br>
+                <form [formGroup]="EditProjectForm">
+                <div class="row pt-1">
+                    <div class="col-md-3">
+                        <h4> Project owner</h4>
+                        <input type="text" placeholder="Enter project owner" class="form-control" formControlName="project_owner">
+                      </div>
+                      <div class="col-md-3">
+                        <h4>Client</h4>
+                        <input type="text" placeholder="Enter Client" class="form-control" formControlName="client">
+                      </div>
+                      <div class="col-md-2">
+                        <h4> Project</h4>
+                        <input type="text" placeholder="Enter Project" class="form-control" formControlName="project">
+                      </div>
+                    <div class="col-md-3">
+                      <h4>Team Members</h4>
+
+                      <div class="multiselect ">
+                        <div class="selectBox abcd" >
+                            <select class="select32" formControlName="team_member" [multiple]="true">
+                                <option>Select an option</option>
+                                <option *ngFor="let allEmployeesEach of allEmployees" [value]="allEmployeesEach.id">{{allEmployeesEach.first_name+' '+allEmployeesEach.last_name}}</option>
+                            </select>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="col-md-1  header12 ">
+                      <button type="submit" class="btn btn-primary" (click)="updateProject()">Submit</button>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div><app-footer></app-footer></div>
+      </div>

@@ -1,0 +1,275 @@
+<div><app-header></app-header></div>
+<!-- end header code here............... -->
+<!-- start leftpanel code here............... -->
+<div><app-left-panel></app-left-panel></div>
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row">
+        <strong>
+          <h3> Costomized Balance </h3>
+        </strong><br>
+        <div class="col-12">
+          <div class="card table-bordered">
+            <form method="post" [formGroup]="addcustomize" (ngSubmit)="submitt()">
+              <div class="card-header ">
+                <hr>
+
+                <div class="row ">
+
+                  <!-- <div class="col-md-3">
+                        <h4>Employee</h4>
+                        <div class="btn-group">
+                          <div class="img" class="col-md-3">
+                            <input type="button"  class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                            </button>
+                            <ul class="dropdown-menu black" formControlName="Employee">
+                              <br>
+                              <br>
+                              <li>
+                                <a href="#" title="Select this card">
+                                  <img src="https://contacts.zoho.in/file?ID=60011030601&fs=thumb" width="10%" class="rounded">
+                                  <span class="pl-2 black">
+                                    Sayali Ashish Anande 1
+                                  </span>
+                                </a>
+                                <br>
+                                <br>
+                              </li>
+                              <li>
+                                <a href="#" title="Select this card">
+                                  <img src="https://people.zoho.in/newhr/images/sampleemployeephotos/user1.jpg" width="10%" class="rounded">
+                                  <span class="pl-2 black">
+                                     Allan Francis S1
+                                  </span>
+                                </a>
+                                <br>
+                                <br>
+                              </li>
+                              <li>
+                                <a href="#" title="Select this card">
+                                  <img src="https://people.zoho.in/newhr/images/sampleemployeephotos/user2.jpg" width="10%" class="rounded">
+                                  <span class="pl-2 black">
+                                    Aleo Kirb S2
+                                  </span>
+                                </a>
+                                <br>
+                                <br>
+                              </li>
+                              <li>
+                                <a href="#" title="Select this card">
+                                  <img src="https://people.zoho.in/newhr/images/sampleemployeephotos/user3.jpg" width="10%" class="rounded">
+                                  <span class="pl-2 black">
+                                    Austin Mayer S3
+                                  </span>
+                                </a>
+                                <br>
+                                <br>
+                              </li>
+                              <li>
+                                <a href="#" title="Select this card">
+                                  <img src="https://people.zoho.in/newhr/images/sampleemployeephotos/user4.jpg" width="10%" class="rounded">
+                                  <span class="pl-2 black">
+                                   Charles Mavric S4
+                                  </span>
+                                </a>
+                                <br>
+                                <br>
+                              </li>
+                              <li>
+                                <a href="#" title="Select this card">
+                                  <img src="https://people.zoho.in/newhr/images/sampleemployeephotos/user5.jpg" width="10%" class="rounded">
+                                  <span class="pl-2 black">
+                                    Dave Duken S5
+                                  </span>
+                                </a>
+                                <br>
+                                <br>
+                              </li>
+                              <li>
+                                <a href="#" title="Select this card">
+                                  <img src="https://people.zoho.in/newhr/images/sampleemployeephotos/user6.jpg" width="10%" class="rounded">
+                                  <span class="pl-2 black">
+                                     George Dwell S6
+                                  </span>
+                                </a>
+                                <br>
+                                <br>
+                              </li>
+                              <li>
+                                <a href="#" title="Select this card">
+                                  <img src="https://people.zoho.in/newhr/images/sampleemployeephotos/user7.jpg" width="10%" class="rounded">
+                                  <span class="pl-2 black">
+                                    Jennifer Jackson S7
+                                  </span>
+                                </a>
+                                <br>
+                                <br>
+                              </li>
+                              <li>
+                                <a href="#" title="Select this card">
+                                  <img src="https://people.zoho.in/newhr/images/sampleemployeephotos/user11.jpg" width="10%" class="rounded">
+                                  <span class="pl-2 black">
+                                    Morgan Finely S8
+                                  </span>
+                                </a>
+                                <br>
+                                <br>
+                              </li>
+                              <li>
+                                <a href="#" title="Select this card">
+                                  <img src="https://people.zoho.in/newhr/images/sampleemployeephotos/user12.jpg" width="10%" class="rounded">
+                                  <span class="pl-2 black">
+                                   Ruby Richerds S9
+                                  </span>
+                                </a>
+                                <br>
+                                <br>
+                              </li>
+                              <li>
+                                <a href="#" title="Select this card">
+                                  <img src="https://people.zoho.in/newhr/images/sampleemployeephotos/user13.jpg" width="10%" class="rounded">
+                                  <span class="pl-2 black">
+                                    Tia Burmen S10
+                                    </span>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div> -->
+
+<!--              
+                    <div class="col-md-6">
+                     
+                      <h4>Employee ID<span class="text-danger">*</span></h4>
+                      <input type="text" placeholder="Enter Employee ID" class="form-control"
+                        formControlName="employeeId" *ngFor="let nh of nik">
+                        <div *ngIf="f.employeeId.touched && f.employeeId.invalid" class="invalid-feedback">
+                          <div *ngIf="f.employeeId.errors.required">employeeId is required.</div>
+                        </div>
+
+                    </div> -->
+
+                    <div class="row">
+                    <div class="col-md-3">
+                      <h4>Employee Name<span class="text-danger">*</span></h4>
+                      <select  class="form-select" formControlName="Employee" id="inputleave_type4" >
+                        <option value="" disabled>Select here</option>
+                        <option *ngFor="let nh of nik.data"> {{nh.emp_name}}</option>
+
+
+                        <div *ngIf="f.Employee.touched && f.Employee.invalid" class="invalid-feedback">
+                          <div *ngIf="f.Employee.errors.required">Employee Name is required.</div>
+                        </div>
+                      </select>
+
+                    </div>
+
+
+
+                
+          
+                  <!-- 
+                        <div class="col-md-3">
+                          <h4>Leave Type</h4>
+                          <input type="text  " placeholder="Enter your leave" class="form-control" formControlName="leavetype">
+                        </div> -->
+                  
+
+                    <div class="col-md-3">
+                      <h4>Leave Type<span class="text-danger">*</span></h4>
+                      <select class="form-select" formControlName="leavetype" id="inputleave_type4" [ngClass]="{ 'is-invalid': submitted && f.leavetype.errors }">
+                        <option value="" disabled>Select here</option>
+                        <option value="Casual Leave">Casual Leave</option>
+                        <option value="Earned Leave">Earned Leave</option>
+                        <option value="Leave Without Pay">Leave Without Pay</option>
+                        <option value="Maternity Leave">Maternity Leave</option>
+                        <option value="Paternity Leave">Paternity Leave</option>
+                        <option value="Sabbatical Leave">Sabbatical Leave</option>
+                        <option value="Sick Leave">Sick Leave</option>
+                        <option value="Other">Other</option>
+
+                        <div *ngIf="f.leavetype.touched && f.leavetype.invalid" class="invalid-feedback">
+                          <div *ngIf="f.leavetype.errors.required">Leave type is required.</div>
+                        </div>
+                      </select>
+
+                    </div>
+
+
+                    <div class="col-md-3">
+                      <h4> Date<span class="text-danger">*</span></h4>
+                      <input type="date" name="" class="form-control" id="" placeholder="Date" formControlName="date" [ngClass]="{ 'is-invalid': submitted && f.date.errors }">
+                      <div *ngIf="f.date.touched && f.date.invalid" class="invalid-feedback">
+                        <div *ngIf="f.date.errors.required">Date is required.</div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <h4>Existing Balance<span class="text-danger">*</span></h4>
+                      <input type="text  " placeholder="Existing Balance" class="form-control"
+                        formControlName="existingbalance" [ngClass]="{ 'is-invalid': submitted && f.existingbalance.errors }">
+                        <div *ngIf="f.existingbalance.touched && f.existingbalance.invalid" class="invalid-feedback">
+                          <div *ngIf="f.existingbalance.errors.required">Existing balance is required.</div>
+                        </div>
+
+                    </div>
+
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <br>
+                      <h4>New Balance<span class="text-danger">*</span></h4>
+                      <input type="text  " placeholder="Enter New Balance" class="form-control"
+                        formControlName="newbalance" [ngClass]="{ 'is-invalid': submitted && f.newbalance.errors }">
+                        <div *ngIf="f.newbalance.touched && f.newbalance.invalid" class="invalid-feedback">
+                          <div *ngIf="f.newbalance.errors.required">New balance is required.</div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                      <br>
+                      <h4>Reason<span class="text-danger">*</span></h4>
+                      <input type="text  " placeholder="Enter your Reason" class="form-control"
+                        formControlName="reason" [ngClass]="{ 'is-invalid': submitted && f.reason.errors }">
+                        <div *ngIf="f.reason.touched && f.reason.invalid" class="invalid-feedback">
+                          <div *ngIf="f.reason.errors.required">Reason is required.</div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                      <br>
+                      <h4>Paternity Leave<span class="text-danger">*</span></h4>
+                      <input type="text  " placeholder="Enter Paternity Leave" class="form-control"
+                        formControlName="paternityleave" [ngClass]="{ 'is-invalid': submitted && f.paternityleave.errors }">
+                        <div *ngIf="f.paternityleave.touched && f.paternityleave.invalid" class="invalid-feedback">
+                          <div *ngIf="f.paternityleave.errors.required">Paternity leave is required.</div>
+                        </div>
+
+                    </div>
+                  </div>
+
+                  <div class="card-body">
+
+                    <button type="submit" class="btn btn-primary  ml-2 mb-1">Submit</button>
+                    <button type="cancel" class="btn btn-primary  ml-2 mb-1"
+                      [routerLink]="['/customize-balance/']">Cancel</button>
+
+                  </div>
+
+
+
+
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- start footer code here............... -->
+<div><app-footer></app-footer></div>
+<!-- end footer code here............... -->

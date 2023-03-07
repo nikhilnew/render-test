@@ -1,0 +1,121 @@
+
+<div><app-header></app-header></div>
+      
+<!-- end header code here............... -->
+<!-- start leftpanel code here............... -->
+<div ><app-left-panel></app-left-panel></div>
+<!-- end leftpanel code here............... -->
+
+<div class="content-wrapper">
+    <div class="content-header">
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <h1 class="m-0">Leave Application</h1>
+            </div>
+        </div>
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-12">
+                    <form [formGroup]="leaveForm">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row pt-1">
+                                    <!-- <div class="col-md-2">
+                                        <select class="custom-select" id="inlineFormCustomSelect"
+                                            onchange="location = this.options[this.selectedIndex].value;">
+                                            <option selected="">Action</option>
+                                            <option value="">Casual Leave</option>
+                                            <option value="">Earned Leave</option>
+                                            <option value="">Leave Without Pay</option>
+                                            <option value="">Maternity Leave</option>
+                                            <option value="">Sabbatical Leave</option>
+                                            <option value="">Sick Leave</option>
+                                            <option value="">Other</option>
+                                        </select>
+                                    </div> -->
+
+
+                                    <!-- <div class="col-md-3">
+                                    <h5>Column View</h5>
+
+                                    <div style="border: 1px solid #ced4da;">
+
+                                        <ng-multiselect-dropdown [ngClass]="{
+                                                  'is-invalid': submitted && p.client.errors
+                                                }" [placeholder]="'select'" [settings]="dropdownSettings"
+                                            [data]="dropdownList" [(ngModel)]="selectedItems"
+                                            (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"
+                                            formControlName="team_member">
+                                        </ng-multiselect-dropdown>
+
+                                    </div>
+
+                                </div> -->
+
+
+
+                                </div>
+                            </div>
+
+                            <!-- type="checkbox" -->
+                            <div class="card-body">
+                                <table id="example2" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>S.No.</th>
+                                            <th>Employee ID</th>
+                                            <!-- <th>Employee Name</th> -->
+                                            <th>Leave type</th>
+                                            <th>Leave Period</th>
+                                            <th>Days/Hours Taken</th>
+                                            <th>Date of Request</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        <tr *ngFor="let all_leaveEach of all_leave; let i = index;">
+                                            <td>{{i+1}}</td>
+                                            <td>{{all_leaveEach.employee_id}}</td>
+                                            <!-- <td>{{all_leaveEach.employee_name}}</td> -->
+                                            <td>{{all_leaveEach.leave_type}}</td>
+                                            <td>{{all_leaveEach.date_from | date}}-{{all_leaveEach.date_to | date}}</td>
+                                            <td>
+                                                {{this.allapply[i].total_day}}
+                                                Days
+                                            </td>
+                                            <td>{{all_leaveEach.Time_Added | date}}</td>
+                                            <td>
+                                                <a [routerLink]="['/edit-apply-leave/'+all_leaveEach.employee_id]">
+                                                    <!-- <a routerLink="edit-apply-leave"> -->
+                                                    <i class="fas fa-edit"></i>
+                                                </a>&nbsp;&nbsp;
+
+                                                <a (click)="deleteleave(all_leaveEach.employee_id)">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+
+                                            </td>
+
+                                            <!-- <div style="font-weight:bold;">sent {{calculateDiff(data.sent)}}_ days ago</div> -->
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- start footer code here............... -->
+<div><app-footer></app-footer></div>
+<!-- end footer code here............... -->
